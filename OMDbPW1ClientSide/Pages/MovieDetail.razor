@@ -1,0 +1,32 @@
+﻿@page "/moviedetail/{id}"
+
+@using Data.Movie
+@using Data.ViewModels
+@using OMDbPW1ClientSide.Pages
+@using System.Collections.Generic
+@inject MovieService MovieService
+
+<h3>MovieDetail</h3>
+
+@if(this.Movie != null)
+{
+    <span>@this.Movie.Title</span>
+}
+else
+{
+    <span>Couldn't find movie...</span>
+}
+
+@code {
+    private MovieDetailViewModel Movie;
+
+    [Parameter]
+    public string Id { get; set; }
+
+    protected async override Task OnInitializedAsync()
+    {
+        await base.OnInitializedAsync();
+
+        this.Movie = await this.MovieService.GetDetailAsync(this.Id);
+    }
+}
