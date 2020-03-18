@@ -8,31 +8,42 @@
 
 <h3>Movies</h3>
 
-<form>
-    <input @bind="@this.Searched" placeholder="name"/>
-    <button type="button" @onclick="this.GetMovie">Get movie!</button>
-    Year: <input type="checkbox" @bind="this.SearchYear"/>
-    @if(this.SearchYear)
-    {
-        <input type="number" @bind="this.Year" placeholder="year"/>
-    }
-
-    Type: <input type="checkbox" @bind="this.SearchType"/>
-    @if(this.SearchType)
-    {
-        <input @bind="this.Type" placeholder="type"/>
-    }
-</form>
-
-@if (this.SearchedMovies != null)
-{
-    <ul class="movies">
-        @foreach (var movie in this.SearchedMovies)
+<div class="movies-root">
+    <form>
+        <input @bind="@this.Searched" placeholder="name" />
+        <button type="button" @onclick="this.GetMovie">Get movie!</button>
+        Year: <input type="checkbox" @bind="this.SearchYear" />
+        @if (this.SearchYear)
         {
-            <li class="movies-movie"> <MovieDisplay Movie="@movie"/> </li>
+            <input type="number" @bind="this.Year" placeholder="year" />
         }
-    </ul>
-}
+
+        Type: <input type="checkbox" @bind="this.SearchType" />
+        @if (this.SearchType)
+        {
+            <input @bind="this.Type" placeholder="type" />
+        }
+    </form>
+
+    @if (this.SearchedMovies != null)
+    {
+        <ul class="movies">
+            @foreach (var movie in this.SearchedMovies)
+            {
+                <li class="movies-movie"> <MovieDisplay Movie="@movie" /> </li>
+            }
+        </ul>
+
+        <form>
+            <button type="button" @onclick="LoadNext">Load next...</button>
+        </form>
+    }
+
+    <div class="loading-bar @(this.Loading? "loading" : "")">
+    </div>
+
+</div>
+
 
 @code {
     private IEnumerable<MovieViewModel> SearchedMovies;
@@ -43,6 +54,8 @@
     private int Year = 2000;
     private string Type;
 
+    public bool Loading { get; private set; }
+
     protected async override Task OnInitializedAsync()
     {
         await base.OnInitializedAsync();
@@ -51,7 +64,30 @@
     public string Searched { get; set; } = "";
     public async Task GetMovie()
     {
-        this.SearchedMovies = await this.MovieService.SearchAsync(this.Searched, this.SearchType? this.Type : null, this.SearchYear? this.Year : -1);
+        this.Loading = true;
+
+        this.SearchedMovies = null;
+        this.StateHasChanged();
+
+        this.SearchedMovies = await this.MovieService.SearchAsync(this.Searched, this.SearchType ? this.Type : null, this.SearchYear ? this.Year : -1);
+
+        this.Loading = false;
+        this.StateHasChanged();
+    }
+
+    public async Task LoadNext()
+    {
+        this.Loading = true;
+        var batch = await this.MovieService.SearchAsync(this.Searched, this.SearchType ? this.Type : null, this.SearchYear ? this.Year : -1, this.SearchedMovies.Count() % 10 + 2);
+        if (batch == null)
+        {
+            this.Loading = false;
+            return;
+        }
+
+        this.SearchedMovies = this.SearchedMovies.Concat(batch);
+
+        this.Loading = false;
         this.StateHasChanged();
     }
 }

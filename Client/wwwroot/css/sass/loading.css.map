@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,AAAC,CACT,KAAK,CAAE,IAAI,CACX,UAAU,CAAE,MAAM,CAClB,gBAAgB,CAAE,GAAG,CACrB,MAAM,CAAE,CAAC,CACT,gBAAgB,CAAE,EAAE,CAMtB,AACF,AAAA,QAAQ,AAAC,CACL,gBAAgB,CAAE,EAAE,CACpB,MAAM,CAAE,MAAM,CAAG",
+    "sources": [
+        "../../../Sass/layout/loading.sass"
+    ],
+    "names": [],
+    "file": "loading.css"
+}

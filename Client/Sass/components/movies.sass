@@ -1,4 +1,5 @@
 .movies
+    margin-top: 80px
     display: flex
     flex-wrap: wrap
     justify-content: center
@@ -11,6 +12,28 @@
     // grid-template-columns: repeat(auto-fit, 600px);
 
     &-movie
-        margin: 20px
-        width: 500px
-        // width: min(100%, 500px)
+        margin: 24px
+        width: 360px
+        animation: fadeIn 1s
+        // width: min(100%, 500pxo)
+
+.movies-root
+    // width: 90%
+
+
+@keyframes fadeIn 
+    0% 
+        transform: scale(0)
+        opacity: 0.0 
+
+    60%
+        transform: scale(1.05)
+
+    80% 
+        transform: scale(0.85)
+        opacity: 1
+
+    100% 
+        transform: scale(1)
+        opacity: 1
+

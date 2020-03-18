@@ -15,6 +15,7 @@ namespace Data.Movie
         private string ENDPOINT = $"http://www.omdbapi.com/?apikey={KEY}";
 
         private readonly HttpClient _http;
+
         public MovieService(HttpClient http)
         {
             this._http = http;
