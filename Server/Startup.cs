@@ -24,11 +24,11 @@ namespace Server
 
             services.AddHttpClient<Data.Movie.MovieService>();
 
-            services.AddResponseCompression(opts =>
-            {
-                opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
-                    new[] { "application/octet-stream" });
-            });
+            //services.AddResponseCompression(opts =>
+            //{
+            //    opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
+            //        new[] { "application/octet-stream" });
+            //});
 
             if (!services.Any(x => x.ServiceType == typeof(HttpClient)))
             {
@@ -54,7 +54,10 @@ namespace Server
             app.UseRouting();
             app.UseStaticFiles();
 
-            app.UseClientSideBlazorFiles<OMDbPW1ClientSide.Startup>();
+            //app.UseClientSideBlazorFiles<OMDbPW1ClientSide.Program>();
+            //app.UseBlazorDebugging
+            app.UseWebAssemblyDebugging();
+            app.UseBlazorFrameworkFiles();
 
             app.UseEndpoints(endpoints =>
             {

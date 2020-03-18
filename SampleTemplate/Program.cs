@@ -4,9 +4,8 @@ using System.Threading.Tasks;
 using System.Text;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
-using Data.Movie;
 
-namespace OMDbPW1ClientSide
+namespace SampleTemplate
 {
     public class Program
     {
@@ -16,7 +15,6 @@ namespace OMDbPW1ClientSide
             builder.RootComponents.Add<App>("app");
 
             builder.Services.AddBaseAddressHttpClient();
-            //builder.Services.AddSingleton<MovieService>();
 
             await builder.Build().RunAsync();
         }
