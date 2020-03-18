@@ -5,8 +5,9 @@ using System.Text;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Data.Movie;
+using Client;
 
-namespace OMDbPW1ClientSide
+namespace Client
 {
     public class Program
     {

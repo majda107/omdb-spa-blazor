@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Data\Data.csproj" />
-    <ProjectReference Include="..\OMDbPW1ClientSide\OMDbPW1ClientSide.csproj" />
+    <ProjectReference Include="..\OMDbPW1ClientSide\Client.csproj" />
   </ItemGroup>
 
 </Project>
