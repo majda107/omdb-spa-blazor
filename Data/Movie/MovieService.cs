@@ -20,9 +20,9 @@ namespace Data.Movie
             this._http = http;
         }
 
-        public async Task<IEnumerable<MovieViewModel>> SearchAsync(string name, string type = null, int year = -1)
+        public async Task<IEnumerable<MovieViewModel>> SearchAsync(string name, string type = null, int year = -1, int page = 1)
         {
-            var requestUrl = $"{this.ENDPOINT}&s={name}";
+            var requestUrl = $"{this.ENDPOINT}&s={name}&page={page}";
             if (type != null) requestUrl += $"&type={type}";
             if (year >= 0) requestUrl += $"&y={year}";
 
