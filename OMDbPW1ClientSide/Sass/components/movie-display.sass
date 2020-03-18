@@ -1,0 +1,48 @@
+@import "../abstracts/variables"    
+@import "../abstracts/mixins"
+
+.movie-display
+    background-color: $darker-color
+    border: 0
+    border-radius: 6px
+    display: grid
+    grid-auto-flow: row
+    width: 100%
+    height: 100%
+    justify-content: center
+    grid-template-areas: "." "text" "poster" "button" "."
+    grid-template-rows: 10px auto 1fr auto 6px
+    grid-template-columns: 90%
+    row-gap: 20px
+    @include shadow
+    transition: all 0.5s linear
+
+    &-text
+        grid-area: text
+
+    &-poster
+        grid-area: poster
+        height: 300px
+        background-position: center center
+        background-size: contain
+        border-radius: 4px
+
+    button
+        grid-area: button
+        background-color: $dark-color
+
+.movie-display:hover
+    // background-color: #311818
+    // background-color: $color2
+    // animation: movie-hover 8s ease infinite;
+    // background: linear-gradient(270deg, #1a1a17, #402b00, #2b2b28);
+    // background-size: 600% 600%;
+
+
+@keyframes movie-hover 
+    0% 
+        background-position: 0% 50% 
+    50%
+        background-position: 100% 50%
+    100%
+        background-position: 0% 50%

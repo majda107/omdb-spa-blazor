@@ -1,0 +1,14 @@
+@import '../abstracts/variables'
+@import '../abstracts/mixins'
+
+input
+    background-color: $darker-color
+    @include shadow
+    border-radius: 6px
+    border: 0
+    padding: 6px 12px 6px 12px
+    font-size: 1.2rem
+
+input:focus
+    outline: none
+    border: 2px solid $color2

@@ -26,10 +26,10 @@
 
 @if (this.SearchedMovies != null)
 {
-    <ul>
+    <ul class="movies">
         @foreach (var movie in this.SearchedMovies)
         {
-            <li> <MovieDisplay Movie="@movie"/> </li>
+            <li class="movies-movie"> <MovieDisplay Movie="@movie"/> </li>
         }
     </ul>
 }

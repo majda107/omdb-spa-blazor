@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,AAAC,CACJ,OAAO,CAAE,IAAI,CACb,SAAS,CAAE,IAAI,CACf,eAAe,CAAE,MAAM,CACvB,UAAU,CAAE,IAAI,CAWhB,AAHC,AAAD,aAAO,AAAC,CACJ,MAAM,CAAE,IAAI,CACZ,KAAK,CAAE,KAAK,CAClB",
+    "sources": [
+        "../../../Sass/components/movies.sass"
+    ],
+    "names": [],
+    "file": "movies.css"
+}

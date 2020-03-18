@@ -4,12 +4,18 @@
 
 @if (this.Movie != null)
 {
-    <h2>@this.Movie.Title</h2>
-    <span>Type: @this.Movie.Type</span>
-    <span>Year: @this.Movie.Year</span>
-    <span>Tag: @this.Movie.ID</span>
-    <img src="@this.Movie.Poster" alt="@($"Poster of {this.Movie.Title}")" />
-    <button @onclick="GetDetail">Detail</button>
+    <div class="movie-display">
+        <div class="movie-display-text">
+            <h2>@this.Movie.Title</h2>
+            <span class="movie-display-text-type">Type: @this.Movie.Type</span>
+            <span class="movie-display-text-year">Year: @this.Movie.Year</span>
+            <span class="movie-display-text-id">ID: @this.Movie.ID</span>
+        </div>
+        
+        <div class="movie-display-poster" style="background-image: url(@("\"" + this.Movie.Poster + "\""))"></div>
+        @*<img src="@this.Movie.Poster" alt="@($"Poster of {this.Movie.Title}")" />*@
+        <button @onclick="GetDetail">Detail</button>
+    </div>
 }
 
 @code  {
