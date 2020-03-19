@@ -10,8 +10,8 @@
 
 @if(this.Selected != null)
 {
-<div class="movies-selected">
-    <div class="movies-selected-close" @onclick="() => { this.Selected = null;  }">Close</div>
+<div class="movies-selected" @onclick="Deselect">
+    <div class="movies-selected-close" @onclick="Deselect">Close</div>
     <MovieDetail Movie="this.Selected"></MovieDetail>
 </div>
 }
@@ -99,10 +99,17 @@
         this.Loading = false;
     }
 
+    public void Deselect()
+    {
+        this.Loading = true;
+        this.Selected = null;
+        this.Loading = false;
+    }
+
     public async Task LoadNext()
     {
         this.Loading = true;
-        var batch = await this.MovieService.SearchAsync(this.Searched, this.SearchType ? this.Type : null, this.SearchYear ? this.Year : -1, this.SearchedMovies.Count() % 10 + 2);
+        var batch = await this.MovieService.SearchAsync(this.Searched, this.SearchType ? this.Type : null, this.SearchYear ? this.Year : -1, ((int)(this.SearchedMovies.Count()-1) / 10) + 2);
         if (batch == null)
         {
             this.Loading = false;

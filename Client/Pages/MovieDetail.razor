@@ -7,13 +7,13 @@
     <div class="movie-detail">
         @if (this.Movie != null)
         {
-            <h2>@this.Movie.Title</h2>
-            <span class="movie-detail-poster">#@this.Movie.ID</span>
-            <span class="movie-detail-poster">Genre: @this.Movie.Genre</span>
-            <span class="movie-detail-poster">Writer: @this.Movie.Writer</span>
-            <span class="movie-detail-poster">Director: @this.Movie.Director</span>
-            <span class="movie-detail-poster">Awards: @this.Movie.Awards</span>
-            <span class="movie-detail-poster">Rating: @this.Movie.Rating</span>
+            <h2  class="movie-detail-title">@this.Movie.Title</h2>
+            <span class="movie-detail-id">#@this.Movie.ID</span>
+            <span class="movie-detail-genre">Genre: @this.Movie.Genre</span>
+            <span class="movie-detail-writer">Writer: @this.Movie.Writer</span>
+            <span class="movie-detail-director">Director: @this.Movie.Director</span>
+            <span class="movie-detail-awards">Awards: @this.Movie.Awards</span>
+            <span class="movie-detail-rating">Rating: @this.Movie.Rating</span>
 
             @if (this.Movie.Poster != "N/A")
             {

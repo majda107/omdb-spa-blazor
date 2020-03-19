@@ -35,13 +35,17 @@
         align-items: center
         flex-wrap: wrap
 
+
 .movies-selected
     background-color: rgba(0, 0, 0, 0.7)
     position: fixed
     width: 100%
     min-height: 100vh
     z-index: $selected-index
-    animation: plainFadeIn 600ms ease-in-out
+    display: flex
+    justify-content: center
+    align-items: center
+    animation: plainFadeIn 200ms linear
 
     &-close
         position: absolute
@@ -49,6 +53,8 @@
         top: 30px
         text-decoration: underline
 
+.movies-selected:hover
+    // cursor: pointer
 
 @keyframes fadeIn 
     0% 

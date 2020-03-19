@@ -1,0 +1,59 @@
+@import "../abstracts/variables"
+@import "../abstracts/mixins"
+
+.movie-detail
+    @include shadow
+
+    background-color: $darker-color
+    border-radius: 10px
+    width: 90%
+
+    display: grid 
+    grid-template-areas: ". . . ." ". title id ." ". genre poster ." ". writer poster ." ". director poster ." ". awards poster ." ". rating poster ." " . . . ."
+    grid-template-columns: 40px 1fr 400px 40px
+    grid-template-rows: 40px auto auto auto auto auto 1fr 40px
+    row-gap: 10px
+    column-gap: 20px
+
+    &-title
+        grid-area: title
+        font-size: 2rem
+        padding-bottom: 40px
+
+    &-id
+        grid-area: id
+        color: $dark-color
+        font-weight: 700
+        font-size: 1.4rem
+        justify-self: flex-end
+
+    &-genre
+        grid-area: genre
+        font-size: 1.3rem
+        
+    &-writer
+        grid-area: writer
+        font-size: 1.1rem
+        color: $text-darker-color
+
+    &-director
+        grid-area: director
+        font-size: 1.1rem
+        color: $text-darker-color
+
+    &-awards
+        grid-area: awards
+        font-size: 1.1rem
+        color: $text-darker-color
+
+    &-rating
+        grid-area: rating
+        font-size: 1.3rem
+        font-weight: 600
+
+    &-poster
+        grid-area: poster
+        align-self: center
+        justify-self: center
+        border-radius: 8px
+        
