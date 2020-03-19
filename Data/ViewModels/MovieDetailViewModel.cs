@@ -52,5 +52,8 @@ namespace Data.ViewModels
 
         [JsonProperty("Type")]
         public string Type { get; set; }
+
+        [JsonProperty("Ratings")]
+        public IList<RatingViewModel> Ratings { get; set; }
     }
 }

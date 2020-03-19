@@ -35,6 +35,9 @@
         align-items: center
         flex-wrap: wrap
 
+        div
+            padding: 10px
+
         .year
             input
                 max-width: 80px
@@ -58,6 +61,12 @@
         right: 30px
         top: 30px
         text-decoration: underline
+        font-size: 1.3rem
+        transition-duration: 300ms
+
+    &-close:hover
+        color: $color1
+        cursor: pointer
 
 .movies-selected:hover
     // cursor: pointer

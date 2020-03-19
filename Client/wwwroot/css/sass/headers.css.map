@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,EAAE,AAAC,CACC,UAAU,CAAE,MAAM,CAClB,WAAW,CAAE,GAAG,CAChB,SAAS,CAAE,IAAI,CAGU,AAN7B,AAKI,EALF,CAKE,IAAI,AAAC,CACD,WAAW,CAAE,GAAG,CAAG",
+    "mappings": "AAEA,AAAA,EAAE,AAAC,CACC,UAAU,CAAE,MAAM,CAClB,WAAW,CAAE,GAAG,CAChB,SAAS,CAAE,IAAI,CAGU,AAN7B,AAKI,EALF,CAKE,IAAI,AAAC,CACD,WAAW,CAAE,GAAG,CAAG",
     "sources": [
-        "../../../Sass/components/headers.sass"
+        "../../../Sass/components/headers.sass",
+        "../../../Sass/abstracts/variables.sass"
     ],
     "names": [],
     "file": "headers.css"

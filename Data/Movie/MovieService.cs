@@ -43,7 +43,7 @@ namespace Data.Movie
         public async Task<MovieDetailViewModel> GetDetailAsync(MovieViewModel movie) => await this.GetDetailAsync(movie.ID);
         public async Task<MovieDetailViewModel> GetDetailAsync(string id)
         {
-            var requestUrl = $"{this.ENDPOINT}&i={id}";
+            var requestUrl = $"{this.ENDPOINT}&i={id}&plot=full";
 
             var result = await this._http.GetAsync(requestUrl);
             if (result.StatusCode != System.Net.HttpStatusCode.OK) return null;
