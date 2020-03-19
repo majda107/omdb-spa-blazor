@@ -19,7 +19,7 @@
 <h1>There is no such place as <span>Pornhub</span></h1>
 
 <div class="movies-root">
-    <form>
+    <form @onsubmit="this.GetMovie">
         <input @bind="@this.Searched" placeholder="name" />
         <button type="button" @onclick="this.GetMovie">Search!</button>
 
