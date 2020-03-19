@@ -12,7 +12,7 @@ namespace Data.Movie
     public class MovieService
     {
         private const string KEY = "c376411e";
-        private string ENDPOINT = $"http://www.omdbapi.com/?apikey={KEY}";
+        private string ENDPOINT = $"https://www.omdbapi.com/?apikey={KEY}";
 
         private readonly HttpClient _http;
 

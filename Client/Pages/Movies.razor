@@ -1,4 +1,4 @@
-﻿@page  "/movies"
+﻿@page  "/"
 
 @using Data.Movie
 @using Data.ViewModels
@@ -10,7 +10,7 @@
 
 @if(this.Selected != null)
 {
-<div class="movies-selected" @onclick="Deselect">
+<div class="movies-selected">
     <div class="movies-selected-close" @onclick="Deselect">Close</div>
     <MovieDetail Movie="this.Selected"></MovieDetail>
 </div>
