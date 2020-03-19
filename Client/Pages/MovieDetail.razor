@@ -4,16 +4,27 @@
 @using System.Collections.Generic
 
 
-<div class="movie-detail">
-    @if (this.Movie != null)
-    {
-        <span>@this.Movie.Title</span>
-    }
-    else
-    {
-        <span>Couldn't find movie...</span>
-    }
-</div>
+    <div class="movie-detail">
+        @if (this.Movie != null)
+        {
+            <h2>@this.Movie.Title</h2>
+            <span class="movie-detail-poster">#@this.Movie.ID</span>
+            <span class="movie-detail-poster">Genre: @this.Movie.Genre</span>
+            <span class="movie-detail-poster">Writer: @this.Movie.Writer</span>
+            <span class="movie-detail-poster">Director: @this.Movie.Director</span>
+            <span class="movie-detail-poster">Awards: @this.Movie.Awards</span>
+            <span class="movie-detail-poster">Rating: @this.Movie.Rating</span>
+
+            @if (this.Movie.Poster != "N/A")
+            {
+                <img class="movie-detail-poster" src="@(this.Movie.Poster)" />
+            }
+        }
+        else
+        {
+            <span>Couldn't find movie...</span>
+        }
+    </div>
 
 @code {
     [Parameter]
