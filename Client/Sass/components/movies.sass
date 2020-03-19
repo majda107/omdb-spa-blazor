@@ -1,3 +1,5 @@
+@import "../abstracts/variables"
+
 .movies
     margin-top: 80px
     display: flex
@@ -33,6 +35,14 @@
         align-items: center
         flex-wrap: wrap
 
+.movies-selected
+    background-color: rgba(0, 0, 0, 0.4)
+    position: fixed
+    width: 100%
+    min-height: 100vh
+    z-index: $selected-index
+    animation: plainFadeIn 600ms ease-in-out
+
 
 @keyframes fadeIn 
     0% 
@@ -50,3 +60,10 @@
         transform: scale(1)
         opacity: 1
 
+
+@keyframes plainFadeIn 
+    0% 
+        opacity: 0.0 
+
+    100%
+        opacity: 1.0

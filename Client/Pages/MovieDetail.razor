@@ -3,16 +3,17 @@
 @using Client.Pages
 @using System.Collections.Generic
 
-<h3>MovieDetail</h3>
 
-@if(this.Movie != null)
-{
-    <span>@this.Movie.Title</span>
-}
-else
-{
-    <span>Couldn't find movie...</span>
-}
+<div class="movie-detail">
+    @if (this.Movie != null)
+    {
+        <span>@this.Movie.Title</span>
+    }
+    else
+    {
+        <span>Couldn't find movie...</span>
+    }
+</div>
 
 @code {
     [Parameter]

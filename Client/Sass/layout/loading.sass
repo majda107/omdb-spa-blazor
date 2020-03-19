@@ -1,3 +1,5 @@
+@import "../abstracts/variables"
+
 .loading-bar
     position: fixed
     width: 100%
@@ -8,6 +10,7 @@
     background: linear-gradient(253deg, #2b2b28, #e3b04b)
     background-size: 400% 400%
     animation: loading 2s ease infinite
+    z-index: $loading-index
 
     // transition-duration: 4s
     // max-height: 100px
