@@ -27,7 +27,7 @@
             Year: <input type="checkbox" @bind="this.SearchYear" />
             @if (this.SearchYear)
             {
-                <input type="number" @bind="this.Year" placeholder="year" />
+            <input type="number" @bind="this.Year" placeholder="year" />
             }
         </div>
 
@@ -35,29 +35,39 @@
             Type: <input type="checkbox" @bind="this.SearchType" />
             @if (this.SearchType)
             {
-                @*<input @bind="this.Type" placeholder="type" />*@
-                <select @bind="this.Type">
-                    <option value="movie">Movie</option>
-                    <option value="series">Series</option>
-                    <option value="episode">Episode</option>
-                    <option value="game">Game</option>
-                </select>
+            @*<input @bind="this.Type" placeholder="type" />*@
+            <select @bind="this.Type">
+                <option value="movie">Movie</option>
+                <option value="series">Series</option>
+                <option value="episode">Episode</option>
+                <option value="game">Game</option>
+            </select>
             }
+        </div>
+        <div class="sound">
+            Sound: <input type="checkbox" @bind="Sound" />
         </div>
     </form>
 
     @if (this.SearchedMovies != null)
     {
-    <ul class="movies">
-        @foreach (var movie in this.SearchedMovies)
-            {
-        <li class="movies-movie"> <MovieDisplay Movie="@movie" OnClick="Select" /> </li>
-            }
-    </ul>
+        @if (this.Sound)
+        {
+            <audio autoplay>
+                <source src="res/intro.mp3" type="audio/mpeg">
+            </audio>
+        }
 
-    <form>
-        <button type="button" @onclick="LoadNext">Load next...</button>
-    </form>
+        <ul class="movies">
+            @foreach (var movie in this.SearchedMovies)
+                {
+                    <li class="movies-movie"> <MovieDisplay Movie="@movie" OnClick="Select" /> </li>
+                }
+        </ul>
+
+        <form>
+            <button type="button" @onclick="LoadNext">Load next...</button>
+        </form>
     }
 
 </div>
@@ -73,6 +83,8 @@
     private string Type = "movie";
 
     public bool Loading { get; private set; }
+
+    public bool Sound { get; set; }
 
     public MovieDetailViewModel Selected { get; private set; }
 
