@@ -21,38 +21,43 @@
 <div class="movies-root">
     <form>
         <input @bind="@this.Searched" placeholder="name" />
-        <button type="button" @onclick="this.GetMovie">Get movie!</button>
-        Year: <input type="checkbox" @bind="this.SearchYear" />
-        @if (this.SearchYear)
-        {
-            <input type="number" @bind="this.Year" placeholder="year" />
-        }
+        <button type="button" @onclick="this.GetMovie">Search!</button>
 
-        Type: <input type="checkbox" @bind="this.SearchType" />
-        @if (this.SearchType)
-        {
-            @*<input @bind="this.Type" placeholder="type" />*@
-            <select @bind="this.Type">
-                <option value="movie">Movie</option>
-                <option value="series">Series</option>
-                <option value="episode">Episode</option>
-                <option value="game">Game</option>
-            </select>
-        }
+        <div class="year">
+            Year: <input type="checkbox" @bind="this.SearchYear" />
+            @if (this.SearchYear)
+            {
+                <input type="number" @bind="this.Year" placeholder="year" />
+            }
+        </div>
+
+        <div class="type">
+            Type: <input type="checkbox" @bind="this.SearchType" />
+            @if (this.SearchType)
+            {
+                @*<input @bind="this.Type" placeholder="type" />*@
+                <select @bind="this.Type">
+                    <option value="movie">Movie</option>
+                    <option value="series">Series</option>
+                    <option value="episode">Episode</option>
+                    <option value="game">Game</option>
+                </select>
+            }
+        </div>
     </form>
 
     @if (this.SearchedMovies != null)
     {
-        <ul class="movies">
-            @foreach (var movie in this.SearchedMovies)
+    <ul class="movies">
+        @foreach (var movie in this.SearchedMovies)
             {
-                <li class="movies-movie"> <MovieDisplay Movie="@movie" OnClick="Select" /> </li>
+        <li class="movies-movie"> <MovieDisplay Movie="@movie" OnClick="Select" /> </li>
             }
-        </ul>
+    </ul>
 
-        <form>
-            <button type="button" @onclick="LoadNext">Load next...</button>
-        </form>
+    <form>
+        <button type="button" @onclick="LoadNext">Load next...</button>
+    </form>
     }
 
 </div>

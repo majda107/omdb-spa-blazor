@@ -9,9 +9,9 @@
     width: 90%
 
     display: grid 
-    grid-template-areas: ". . . ." ". title id ." ". genre poster ." ". writer poster ." ". director poster ." ". awards poster ." ". rating poster ." " . . . ."
+    grid-template-areas: ". . . ." ". title id ." ". genre poster ." ". writer poster ." ". director poster ." ". awards poster ." ". rating poster ." ". plot poster ." " . . . ."
     grid-template-columns: 40px 1fr 400px 40px
-    grid-template-rows: 40px auto auto auto auto auto 1fr 40px
+    grid-template-rows: 40px auto auto auto auto auto auto 1fr 40px
     row-gap: 10px
     column-gap: 20px
 
@@ -59,14 +59,17 @@
         align-self: center
         justify-self: center
         border-radius: 8px
+
+    &-plot
+        grid-area: plot
         
 
 
 @media screen and ( max-width:  1000px)
     .movie-detail
-        grid-template-areas: ". . ." ". title ." ". id ." ". poster ." ". genre ." ". writer ." ". director ." ". awards ." ". rating ." " . . ."
+        grid-template-areas: ". . ." ". title ." ". id ." ". poster ." ". genre ." ". writer ." ". director ." ". awards ." ". rating ." ". plot ." " . . ."
         grid-template-columns: 40px 1fr 40px
-        grid-template-rows: 40px auto auto auto auto auto auto auto auto 40px
+        grid-template-rows: 40px auto auto auto auto auto auto auto auto auto 40px
 
         &-title
             justify-self: center
