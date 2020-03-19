@@ -6,7 +6,9 @@
 @using System.Collections.Generic
 @inject MovieService MovieService
 
-<h3>Movies</h3>
+<LoadingBar Loading="this.Loading"></LoadingBar>
+
+@*<h3>Movies</h3>*@
 
 <div class="movies-root">
     <form>
@@ -21,7 +23,13 @@
         Type: <input type="checkbox" @bind="this.SearchType" />
         @if (this.SearchType)
         {
-            <input @bind="this.Type" placeholder="type" />
+            @*<input @bind="this.Type" placeholder="type" />*@
+            <select @bind="this.Type">
+                <option value="movie">Movie</option>
+                <option value="series">Series</option>
+                <option value="episode">Episode</option>
+                <option value="game">Game</option>
+            </select>
         }
     </form>
 
@@ -39,9 +47,6 @@
         </form>
     }
 
-    <div class="loading-bar @(this.Loading? "loading" : "")">
-    </div>
-
 </div>
 
 
@@ -52,9 +57,11 @@
     private bool SearchType;
 
     private int Year = 2000;
-    private string Type;
+    private string Type = "movie";
 
     public bool Loading { get; private set; }
+
+    public MovieViewModel Selected { get; private set; } 
 
     protected async override Task OnInitializedAsync()
     {

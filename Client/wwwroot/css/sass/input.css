@@ -1,2 +1,2 @@
-input{background-color:#1a1a17;-webkit-box-shadow:10px 10px 49px -2px rgba(0,0,0,0.35);box-shadow:10px 10px 49px -2px rgba(0,0,0,0.35);border-radius:6px;border:0;padding:6px 12px 6px 12px;font-size:1.2rem}input:focus{outline:none;border:2px solid #f1d6ab}
+input{background-color:#1a1a17;-webkit-box-shadow:10px 10px 49px -2px rgba(0,0,0,0.35);box-shadow:10px 10px 49px -2px rgba(0,0,0,0.35);border-radius:6px;border:0;padding:6px 12px 6px 12px;margin:6px 12px 6px 12px;font-size:1.2rem;-webkit-transition-duration:200ms;transition-duration:200ms}input:focus{outline:none;color:#e3b04b}
 /*# sourceMappingURL=input.css.map */

@@ -4,17 +4,22 @@
 
 @if (this.Movie != null)
 {
-    <div class="movie-display">
+    <div class="movie-display" @onclick="GetDetail">
+
+        <span class="movie-display-id">#@this.Movie.ID</span>
+
+        @*<img class="movie-display-poster" src="@((this.Movie.Poster == "N/A")? "https://cdn0.iconfinder.com/data/icons/files-documents/512/YPS__file_document_delete_less_sheet_paper_page_text-512.png" : this.Movie.Poster)" />*@
+        <div class="movie-display-poster" style="background-image: url(@("\"" + ((this.Movie.Poster == "N/A")? "https://cdn0.iconfinder.com/data/icons/files-documents/512/YPS__file_document_delete_less_sheet_paper_page_text-512.png" : this.Movie.Poster) + "\""))"></div>
+
         <div class="movie-display-text">
             <h2>@this.Movie.Title</h2>
-            <span class="movie-display-text-type">Type: @this.Movie.Type</span>
-            <span class="movie-display-text-year">Year: @this.Movie.Year</span>
-            <span class="movie-display-text-id">ID: @this.Movie.ID</span>
+            <span class="movie-display-text-type">@this.Movie.Type</span>
+            <span class="movie-display-text-year">@this.Movie.Year</span>
         </div>
-        
-        <div class="movie-display-poster" style="background-image: url(@("\"" + this.Movie.Poster + "\""))"></div>
+
+        @*<div class="movie-display-poster" style="background-image: url(@("\"" + ((this.Movie.Poster == "N/A")? "" : this.Movie.Poster) + "\""))"></div>*@
         @*<img src="@this.Movie.Poster" alt="@($"Poster of {this.Movie.Title}")" />*@
-        <button @onclick="GetDetail">Detail</button>
+        @*<button >Detail</button>*@
     </div>
 }
 
