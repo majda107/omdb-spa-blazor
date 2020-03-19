@@ -27,8 +27,12 @@
     [Parameter]
     public MovieViewModel Movie { get; set; }
 
-    public void GetDetail()
+    [Parameter]
+    public EventCallback<MovieViewModel> OnClick { get; set; }
+
+    public async Task GetDetail()
     {
-        this.NavigationManager.NavigateTo($"moviedetail/{this.Movie.ID}");
+        await this.OnClick.InvokeAsync(this.Movie);
+        //this.NavigationManager.NavigateTo($"moviedetail/{this.Movie.ID}");
     }
 }

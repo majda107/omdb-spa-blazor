@@ -8,7 +8,18 @@
 
 <LoadingBar Loading="this.Loading"></LoadingBar>
 
+
+<h1>There is no such place as <span>Pornhub</span></h1>
 @*<h3>Movies</h3>*@
+
+@if(this.Selected != null)
+{
+<div class="movies-selected">
+    <div class="movies-selected-close" @onclick="() => { this.Selected = null;  }">Close</div>
+    <MovieDetail Movie="this.Selected"></MovieDetail>
+</div>
+}
+
 
 <div class="movies-root">
     <form>
@@ -38,7 +49,7 @@
         <ul class="movies">
             @foreach (var movie in this.SearchedMovies)
             {
-                <li class="movies-movie"> <MovieDisplay Movie="@movie" /> </li>
+                <li class="movies-movie"> <MovieDisplay Movie="@movie" OnClick="Select" /> </li>
             }
         </ul>
 
@@ -61,7 +72,7 @@
 
     public bool Loading { get; private set; }
 
-    public MovieViewModel Selected { get; private set; } 
+    public MovieDetailViewModel Selected { get; private set; }
 
     protected async override Task OnInitializedAsync()
     {
@@ -80,6 +91,15 @@
 
         this.Loading = false;
         this.StateHasChanged();
+    }
+
+    public async Task Select(MovieViewModel movie)
+    {
+        this.Loading = true;
+
+        this.Selected = await this.MovieService.GetDetailAsync(movie);
+
+        this.Loading = false;
     }
 
     public async Task LoadNext()
